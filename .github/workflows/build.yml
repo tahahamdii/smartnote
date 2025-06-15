@@ -71,12 +71,4 @@ jobs:
         cache-from: type=registry,ref=docker.io/${{ secrets.DOCKER_USERNAME }}/smartnote-backend:latest
         cache-to: type=inline
 
-    - name: Start Backend Server
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      working-directory: backend
-      env:
-        MONGODB_URI: ${{ secrets.MONGODB_URI }}
-      run: |
-        npm start
-        # Note: The server will run in the background automatically
-        # GitHub Actions will keep this step running until the workflow completes
+
