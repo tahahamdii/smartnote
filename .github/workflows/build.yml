@@ -30,10 +30,18 @@ jobs:
         npm install --force
         npm run build
 
-    - name: Install and Build Backend
+    - name: Install Backend Dependencies
       working-directory: backend
       env:
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
       run: |
         npm install --force
-        npm run build
+        npm run build  # This is just a placeholder script since backend doesn't need building
+
+    - name: Start Backend Server
+      working-directory: backend
+      env:
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      run: |
+        npm start
+      background: true
