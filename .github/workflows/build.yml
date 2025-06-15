@@ -24,12 +24,16 @@ jobs:
           backend/package-lock.json
 
     - name: Install and Build Frontend
+      env:
+        NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL || 'http://localhost:3001' }}
       run: |
         npm install --force
         npm run build
 
     - name: Install and Build Backend
       working-directory: backend
+      env:
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
       run: |
         npm install --force
         npm run build
