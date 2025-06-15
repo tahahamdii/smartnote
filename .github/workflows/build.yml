@@ -25,11 +25,11 @@ jobs:
 
     - name: Install and Build Frontend
       run: |
-        npm ci
+        npm install --force
         npm run build
 
     - name: Install and Build Backend
       working-directory: backend
       run: |
-        npm ci
+        npm install --force
         npm run build
