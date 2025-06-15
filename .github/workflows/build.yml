@@ -77,4 +77,5 @@ jobs:
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
       run: |
         npm start
-      background: true
+        # Note: The server will run in the background automatically
+        # GitHub Actions will keep this step running until the workflow completes
